@@ -1,0 +1,48 @@
+plugins {
+    id "io.spring.dependency-management" version "1.1.0"
+    id 'java'
+    id 'io.qameta.allure' version '2.9.6'
+}
+//repositories {
+////    mavenLocal()
+//    mavenCentral()
+//}
+//compileJava.options.encoding = 'UTF-8'
+//
+//sourceCompatibility = JavaVersion.VERSION_16
+//targetCompatibility = JavaVersion.VERSION_16
+
+allprojects {
+//    group "ru.mytest.example"
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    apply plugin: "io.spring.dependency-management"
+
+    dependencyManagement {
+        dependencies {
+            imports {
+                mavenBom "org.springframework.boot:spring-boot-dependencies:${Versions.springBootBom}"
+                mavenBom "org.testcontainers:testcontainers-bom:1.17.6"
+                mavenBom "com.google.protobuf:protobuf-bom:3.21.12"
+            }
+            dependency "com.google.guava:guava:${Versions.guava}"
+            dependency("org.glassfish:jakarta.json:${Versions.glassfishJson}")
+        }
+    }
+}
+dependencies {
+    testImplementation ('org.junit.jupiter:junit-jupiter-api')
+    testImplementation ('org.junit.jupiter:junit-jupiter-engine')
+    testImplementation ('org.junit.jupiter:junit-jupiter-params')
+//    testImplementation platform('org.junit:junit-bom:5.9.1')
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+
+test {
+    useJUnitPlatform()
+}

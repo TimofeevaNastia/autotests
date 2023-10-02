@@ -1,0 +1,3 @@
+rootProject.name = 'sbtqa-test-example'
+include 'api-tests'
+

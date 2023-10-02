@@ -1,0 +1,11 @@
+config:
+  stand:
+    url: http://localhost:8081
+  database: {
+    addressservice: {
+      login: usr,
+      password: pwd,
+      url: 'jdbc:postgresql://localhost:5430/telegrambotinfo',
+      driver: 'org.postgresql.Driver'
+    }
+  }
