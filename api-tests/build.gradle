@@ -59,6 +59,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    systemProperty 'allure.results.directory', 'build/allure-results'
 //    testLogging {
 //        events "passed", "skipped", "failed"
 //    }
