@@ -9,3 +9,23 @@ config:
       driver: 'org.postgresql.Driver'
     }
   }
+  mq:
+    mq1:
+      servers:
+        - queueManager: QM1
+          channel: DEV.ADMIN.SVRCONN
+          connName: ibmmq.ru(1414)
+          port: 1414
+          user: admin
+          password: passw0rd
+        - queueManager: QM2
+          channel: DEV.ADMIN.SVRCONN
+          connName: ibmmq.ru(1415)
+          port: 1415
+          user: usr
+          password: pswd
+      queue1: QUEUE1
+      queue2: QUEUE2
+  services:
+    addressservice:
+      server: http://localhost:8080

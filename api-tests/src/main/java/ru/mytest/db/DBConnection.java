@@ -10,6 +10,7 @@ public class DBConnection {
     private Connection connection;
 
     public DBConnection(DataSource dataSource) {
+        this.closeConnection();
         try {
             connection = dataSource.getConnection();
         } catch (SQLException e) {

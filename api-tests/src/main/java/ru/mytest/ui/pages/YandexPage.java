@@ -1,4 +1,4 @@
-package ru.mytest.pages;
+package ru.mytest.ui.pages;
 
 //import cucumber.api.java.ru.И;
 //import org.openqa.selenium.WebElement;

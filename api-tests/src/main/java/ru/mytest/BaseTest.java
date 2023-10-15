@@ -2,20 +2,21 @@ package ru.mytest;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import ru.mytest.configuration.Config;
-import ru.mytest.configuration.Database;
-import ru.mytest.configuration.Services;
-import ru.mytest.configuration.Stand;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import ru.mytest.configuration.*;
 import ru.mytest.db.AddressServiceDB;
-
 @Data
 @Accessors(chain = true)
-@ContextConfiguration(classes = {Config.class, Database.class, Services.class, Stand.class, AddressServiceDB.class})
+//@ExtendWith(SpringExtension.class)
+//@ContextConfiguration(classes = {Config.class, Database.class, Services.class, Stand.class})
 @SpringBootTest
+@SpringJUnitConfig(classes = {Config.class, Database.class, Services.class, Stand.class})
 @ActiveProfiles("${env}")
 //@SpringBootApplication
 public class BaseTest {
