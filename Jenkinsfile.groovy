@@ -6,7 +6,7 @@ pipeline {
         LANGUAGE = 'en_US.UTF-8'
     }
     tools {
-        gradle 'Gradle7.6.1'
+        gradle 'gradle 7.6.1'
     }
 
 
