@@ -13,6 +13,7 @@ pipeline {
     parameters {
         string(name: 'GIT_URL', defaultValue: 'https://github.com/TimofeevaNastia/autotests.git', description: 'The target git url')
         string(name: 'GIT_BRANCH', defaultValue: 'master', description: 'The target git branch')
+        string(name: 'INCLUDE_TAGS', defaultValue: 'addresservice', description: 'The include tags for launch tests')
         choice(name: 'ENV', choices: ['dev', 'test'], description: 'Environment')
     }
 
@@ -27,7 +28,7 @@ pipeline {
         }
         stage('Run gradle clean test') {
             steps {
-                bat 'gradle clean test -Denv=$ENV'
+                bat 'gradle clean test -Denv=$ENV -DincludeTags=$INCLUDE_TAGS'
             }
         }
         stage('Backup and Reports') {
