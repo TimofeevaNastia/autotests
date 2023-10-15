@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Run gradle clean test') {
             steps {
-                bat 'gradle -Denv=$ENV clean test'
+                bat 'gradle clean test -Denv=$ENV'
             }
         }
         stage('Backup and Reports') {
