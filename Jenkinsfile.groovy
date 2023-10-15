@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Run gradle clean test') {
             steps {
-                sh 'gradle clean test -Denv=$ENV -DincludeTags=$INCLUDE_TAGS'
+                bat 'gradle clean test -Denv=dev -DincludeTags=addresservice'
             }
         }
         stage('Backup and Reports') {
